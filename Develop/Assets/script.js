@@ -3,9 +3,13 @@ console.log('im on it.');
 
 // formatting and code help from dcode on youtube https://youtu.be/nmAHDEO9RW8
 const today = moment();
-$("#currentDay").text(today.format("MMMM Do YYYY, h:mm:ss a"));
+$("#H-Time").text(today.format("MMMM Do YYYY, h:mm:ss a"));
 
 console.log(today.format("MMMM Do YYYY, h:mm:ss a"));
+
+for(var i=9; i<= 17; i++){
+
+};
 
 
 
