@@ -15,7 +15,7 @@ textarea {
 
 .jumbotron {
   text-align: center;
-  background-color: blue;
+  background-color: transparent;
   color: black;
   border-radius: 0;
   border-bottom: 10px solid black;
@@ -72,12 +72,12 @@ textarea {
 
 .lead{
   font-size: medium;
-  color: white;
+  color: black;
 }
 
 #H-Time{
   font-size: x-large;
-  color: white;
+  color: black;
 }
 
 /* #timeEntry{

@@ -1,6 +1,8 @@
 // console.log('hello from file');
 console.log('im on it.');
 
+const scheduled = document.querySelector(".saveBtn")
+
 // formatting and code help from dcode on youtube https://youtu.be/nmAHDEO9RW8
 const today = moment();
 $("#H-Time").text(today.format("MMMM Do YYYY, h:mm:ss a"));
@@ -9,6 +11,20 @@ console.log(today.format("MMMM Do YYYY, h:mm:ss a"));
 
 for(var i=9; i<= 17; i++){
 
+  // attempt to get the saved data for the hour of the loop
+var data = "" ;
+
+// Compare i to current hour to determine if this hour is in the past, present, future. 
+var template = `
+<div class="row">
+        <div class="col-1 time-block hour">${i}</div>
+        <textarea class="col-10 past present future">
+          ${data}
+        </textarea>
+        <button data-hour="${i}" class="col-1 saveBtn"><i class="fas fa-save fa-x"></i></button>
+      </div>
+      `;
+      // Appened the HTML
 };
 
 
@@ -30,6 +46,8 @@ for(var i=9; i<= 17; i++){
 //save an hour to local storage 
 
 // Html needs a data attribute for loggin the time.
+
+
 
 
 // --------------------------------
