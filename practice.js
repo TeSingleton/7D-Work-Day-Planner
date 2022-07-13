@@ -48,17 +48,18 @@ createSchedule();
 function changeColors() {
   
   // being that the var is localized, i can change the value to utilize within this function.
+// var divNumber = document.getElementsByClassName("col-10")
 
-  $(".time-block").each(function () {
+  $('.time-block').each(function () {
 
     
 
-    if ($(this)< currentHour) {
+    if ($(this).attr("id")< currentHour) {
         $(this).addClass('future');
         
         
 
-    } else if ($(this) > currentHour) {
+    } else if ($(this).attr("id") > currentHour) {
         
         $(this).addClass('past');
     } else {
