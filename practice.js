@@ -20,28 +20,39 @@ showTime();
 function createSchedule() {
   for (i = 9; i < 18; i++) {
     if (i > 12) {
-      var hourRow = `
+      var newAdd = `
                 <div id="${i}" class= "row time-block">
-                    <div class="hour col-1">${i - 12 + " PM"}</div>
-                    <textarea name="" id="" class="description col-10"></textarea>
+                    <div class="hour col-1">${i - 12 + "PM"}</div>
+                    <textarea name="" id="" class="description col-10" placeholder"Available"></textarea>
                     <button type="button" class="btn btn-primary col-1 saveBtn">${saveIcon}</button>
                 </div>`;
 
-      $("#timeblocks").append(hourRow);
+      $("#timeblocks").append(newAdd);
     } else {
-      var hourRow = `
+      var newAdd = `
                 <div id="${i}" class= "row time-block">
-                    <div class="hour col-1">${i + " AM"}</div>
+                    <div class="hour col-1">${i + "AM"}</div>
                     <textarea name="" id="" class="description col-10"></textarea>
                     <button type="button" class="btn btn-primary col-1 saveBtn">${saveIcon}</button>
                 </div>`;
 
-      $("#timeblocks").append(hourRow);
+      $("#timeblocks").append(newAdd);
     }
   }
 }
 
+
+
 createSchedule();
+// setting key and value for local storage
+$('.saveBtn').on('click', function(){
+    var notes = $(this).siblings('.description').val();
+    var hour = $(this).parent().attr('id');
+    localStorage.setItem(hour, notes);
+    console.log(hour, notes);
+});
+
+
 
 
 //  this function highlights specific divs for thw time of day. 
@@ -54,17 +65,17 @@ function changeColors() {
 
     
 
-    if ($(this).attr("id")< currentHour) {
-        $(this).addClass('future');
+    if ($(this).attr("id") === currentHour) {
+        $(this).addClass('present');
         
         
 
-    } else if ($(this).attr("id") > currentHour) {
+    } else if ($(this).attr("id") < currentHour) {
         
-        $(this).addClass('past');
+        $(this).addClass('future');
     } else {
     
-      $(this).addClass('present');
+      $(this).addClass('past');
      
     }
   });
@@ -73,5 +84,23 @@ function changeColors() {
 changeColors();
 
 // todo -----add local storage
+
+
+// window.localStorage.getItem('.description')
+window.localStorage.setItem
+
+
+var takeNote = {
+    
+}
+
+
+localStorage.getItem
+// function takeNote(){
+//     var note= ('.description').val(localStorage.getItem('id'))
+//     localStorage.setItem(note)
+// }
+
+// takeNote();
 
 
