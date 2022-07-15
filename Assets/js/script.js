@@ -1,97 +1,76 @@
-// // console.log('hello from file');
-// console.log('im on it.');
+var timeBlocks = $("#timeblocks");
+var currentHour = moment();
 
-// const scheduled = document.querySelector(".saveBtn")
-// console.log(scheduled)
-// const scheduledInput = document.querySelector("textarea")
-// console.log(scheduledInput)
-// const today = moment();
-// console.log(today.format("MMMM Do YYYY, h:mm:ss a"));
+var saveIcon = `<i class="fas fa-save"></i>`;
+var textAreaTest = document.getElementsByTagName("textarea");
 
-// localStorage.setItem('textarea')
-// console.log(localStorage)
+// prints the current time on the header
+function showTime() {
+  setInterval(function () {
+    let today = moment();
+    $("#H-Time").text(today.format("[It is ]  MMMM Do YYYY, h:mm:ss a"));
+  });
+}
 
+showTime();
 
+// Create hour of day (adjusts for AM/PM), text area for tasks, and save button
 
-// // formatting and code help from dcode on youtube https://youtu.be/nmAHDEO9RW8
+// making the schedule
+function createSchedule() {
+  for (i = 9; i < 18; i++) {
+    if (i > 12) {
+      var newAdd = `
+                <div id="${i}" class= "row schedule_input">
+                    <div class="hour col-1">${i - 12 + "PM"}</div>
+                    <textarea name="" id="" class="description col-10" placeholder"Available"></textarea>
+                    <button type="button" class="btn btn-primary col-1 saveBtn">${saveIcon}</button>
+                </div>`;
 
-// $("#H-Time").text(today.format("MMMM Do YYYY, h:mm:ss a"));
+      $("#timeblocks").append(newAdd);
+    } else {
+      var newAdd = `
+                <div id="${i}" class= "row schedule_input">
+                    <div class="hour col-1">${i + "AM"}</div>
+                    <textarea name="" id="" class="description col-10"></textarea>
+                    <button type="button" class="btn btn-primary col-1 saveBtn">${saveIcon}</button>
+                </div>`;
 
+      $("#timeblocks").append(newAdd);
+    }
+  }
+}
+createSchedule();
 
+// setting key and value for local storage
+$(".saveBtn").on("click", function () {
+  var notes = $(this).siblings(".description").val();
+  var hour = $(this).parent().attr("id");
+  localStorage.setItem(hour, notes);
+  console.log(hour, notes);
+});
 
-// for(var i=9; i<= 17; i++){
+//  this function highlights specific divs for the time of day.
+// function changeColors() {
 
-//   // attempt to get the saved data for the hour of the loop
-// var key = "hour-"+i;
-// var data = "" ;
+// }
 
-// // Compare i to current hour to determine if this hour is in the past, present, future. 
-// var template = `
-// <div class="row">
-//         <div class="col-1 time-block hour">${i}</div>
-//         <textarea class="col-10 past present future">
-//           ${data}
-//         </textarea>
-//         <button data-hour="${i}" class="col-1 saveBtn"><i class="fas fa-save fa-x"></i></button>
-//       </div>
-//       `;
-//       // Appened the HTML
-// };
+$(".schedule_input").each(function () {
+  
+  if ($(this).attr('id') === showTime) {
+    $(this).addClass("present");
+  } else if ($(this).attr('id') < showTime) {
+    $(this).addClass("future");
+  } else {
+    $(this).addClass("past");
+  }
+});
 
-// scheduled.addEventListener('click',function(e){
-//     if(e.target.className == '.saveBtn'){
-//         // const 
-//     };
-// });
-    
+// changeColors();
 
-// localStorage(key,data);
-// //Declare Current time
+// todo -----add local storage
 
-// //Declare Current Day Element
-
-// //Declare Time Entries Container Element
-
-// //Render a block for each hour of the day
-//     //add a for loop with array to log the times on the planner. 
-//     // for(var i=9; i<= 17; i++){
-
-//     // };  // for example
-
-
-// //save an hour to local storage 
-
-// // Html needs a data attribute for loggin the time.
-
-
-
-
-// // --------------------------------
-
-
-
-
-
-
-
-// // below solution from Knowledge Base on YouTube https://youtu.be/CJSukyN5gBc
-// // Instead of copying the div in the HTML, I Used JS to clone the divs as needed. 
-
-
-// // original copy code below
-
-// // function duplicate (){
-// // const dupeDiv = document.getElementById ("dupe");
-
-// // const divClone = dupeDiv.cloneNode (true);
-
-// // // };
-// // // "true is for deep cloning"
-
-// // document.body.appendChild(divClone);
-
-
-
-// // console.log(divClone)
-
-
+$(".description").each(function () {
+  var scheduledNotes = localStorage.getItem($(this).parent().attr("id"));
+  $(this).val(scheduledNotes);
+});

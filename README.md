@@ -1,29 +1,30 @@
-# 7D-Work-Day-Planner
+
+# Work Day Planner-work in progress
+
+## A web app designed to help people schedule out their day. 
 A work day planner built with Third party APIs to test my working knowledge. 
+A feature of this planner is that its color coded for the time of day. 
+Green for Future events, Gray  for past events, and Red for the Current time. 
+Once your schedule is saved, it will be available to you upon return/reload of the page
 
-# User Story Below: Please remove upon project completion.
-GIVEN I am using a daily planner to create a schedule
 
-WHEN I open the planner
+## Work Completed.
+* Added and manipulated Moment.js for time keeping on web app
+* I used Javascript to create and appened the schedule with help from https://github.com/thenickedwards/work-day-scheduler/blob/main/Assets/script.js
+* Local storage for scheduled tasks added to project.
 
-THEN the current day is displayed at the top of the calendar
+## Work to be completed 
+* At the moment my planner is giving me a bug of only highlighting for future events. 
+  I have tried various methods that I've researched online and have , at the current moment i have been unable to make it work. 
+* I am turning the project in incomplete to stay current with my class and will return to resubmit once I have gathered more information. 
 
-WHEN I scroll down
+### Links to live: 
 
-THEN I am presented with time blocks for standard business hours
+### Links to repo
 
-WHEN I view the time blocks for that day
 
-THEN each time block is color-coded to indicate whether it is in the past, present, or future
+## Credit/Sources.:
 
-WHEN I click into a time block
-
-THEN I can enter an event
-
-WHEN I click the save button for that time block
-
-THEN the text for that event is saved in local storage
-
-WHEN I refresh the page
-
-THEN the saved events persist
+Nick Edwards: https://github.com/thenickedwards
+Xandromus': https://github.com/coding-boot-camp/super-disco
+dcode(YouTube): https://youtu.be/k8yJCeuP6I8
