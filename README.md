@@ -18,9 +18,9 @@ Once your schedule is saved, it will be available to you upon return/reload of t
   I have tried various methods that I've researched online and have , at the current moment i have been unable to make it work. 
 * I am turning the project in incomplete to stay current with my class and will return to resubmit once I have gathered more information. 
 
-### Links to live: 
+### Links to live: https://tesingleton.github.io/7D-Work-Day-Planner/ 
 
-### Links to repo
+### Links to repo: https://github.com/TeSingleton/7D-Work-Day-Planner
 
 
 ## Credit/Sources.:
