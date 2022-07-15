@@ -20,6 +20,9 @@ Once your schedule is saved, it will be available to you upon return/reload of t
 
 ### Links to live: https://tesingleton.github.io/7D-Work-Day-Planner/ 
 
+![App Screenshot](./Assets/images/Screen%20Shot%202022-07-14%20at%205.43.17%20PM.png)
+Format: ![Alt Text](url)
+
 ### Links to repo: https://github.com/TeSingleton/7D-Work-Day-Planner
 
 
